@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import './styles/GoogleAPI.css';
 
+const WEATHER_API = import.meta.env.VITE_WEATHER_API
+const GOOGLE_API = import.meta.env.VITE_GOOGLE_API;
+
 const api = {
-  key: "dbc49d992752d870b8a48bc1ea5a8147",
+  key: WEATHER_API,
   base: "https://api.openweathermap.org/data/2.5/"
 }
-
-const GOOGLE_API = import.meta.env.VITE_GOOGLE_API;
 
 function App() {
   const [location, setLocation] = useState('Prosser, WA, USA');
