@@ -1,0 +1,67 @@
+/* GoogleAPI.css */
+
+.google-places-autocomplete-wrapper {
+  width: 100%;
+  color: #ffffff;
+  font-size: 20px;
+  transition: 0.4s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='IndicatorsContainer'] {
+  display: none;
+}
+
+.google-places-autocomplete-wrapper [class*='control'] {
+  padding: 15px;
+  
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: 5px 7px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='control']:focus-within {
+  cursor: text;
+  background-color: rgba(0,0,0,0.7);
+  transition: 0.4s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='Input'] input {
+  display: block;
+  width: 100%;
+  color: #ffffff !important;
+  transition: 0.4s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='singleValue'] {
+  display: block;
+  color: #ffffff !important;
+  transition: 0.4s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='menu'] {
+  padding: 15px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: 5px 7px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='option'] {
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #ffffff;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.google-places-autocomplete-wrapper [class*='option']:hover {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color: #ffffff;
+}

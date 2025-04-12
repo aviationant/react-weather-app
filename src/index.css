@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: bottom;
+  background-color: #1a1a1a;
+  transition: 0.4s ease;
+}
+
+input {
+  font-family: inherit;
+}
+
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
+  padding: 25px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+}
+
+.bgImg {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  /* background-position: center; */
+  background-color: #1a1a1a;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.sunny {
+  background-image: url('./assets/sunny.png');
+  transition: opacity 1s;
+}
+
+.night {
+  background-image: url('./assets/night.png');
+  transition: opacity 1s;
+}
+
+.snowy {
+  background-image: url('./assets/snowy.png');
+  transition: opacity 1s;
+}
+
+.stormy {
+  background-image: url('./assets/stormy.png');
+  transition: opacity 1s;
+}
+
+.container.show-sunny .sunny,
+.container.show-night .night,
+.container.show-stormy .stormy,
+.container.show-snowy .snowy {
+  opacity: 1;
+}
+
+.search-box {
+  width: 100%;
+  margin: 0 0 75px;
+}
+
+.search-box .search-bar {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  appearance: none;
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  box-shadow: 5px 7px rgba(0,0,0,0.15);
+  font-size: 20px;
+
+  transition: 0.4s ease;
+}
+
+.search-box .search-bar:focus {
+  background-color: rgba(0,0,0,0.6)
+}
+

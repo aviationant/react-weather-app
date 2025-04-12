@@ -1,0 +1,6 @@
+--2025-04-11 14:27:34--  https://api.openweathermap.org/data/2.5/weather?q=austin
+Resolving api.openweathermap.org (api.openweathermap.org)... 38.89.70.82, 2604:86c0:5001:a::2
+Connecting to api.openweathermap.org (api.openweathermap.org)|38.89.70.82|:443... connected.
+HTTP request sent, awaiting response... 401 Unauthorized
+
+Username/Password Authentication Failed.
