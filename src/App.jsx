@@ -12,7 +12,7 @@ const GOOGLE_API = import.meta.env.VITE_GOOGLE_API;
 function App() {
   const [location, setLocation] = useState('Prosser, WA, USA');
   const [weather, setWeather] = useState({});
-  const [choice, setChoice] = useState(1);
+  const [cityName, setCityName] = useState('Prosser, WA, USA');
   const [isLoading, setIsLoading] = useState(true);
 
   const search = (lat, long) => {
@@ -23,7 +23,6 @@ function App() {
           setWeather(result);
           setBackground(result);
           setIsLoading(false);
-          console.log(weather);
         }).catch(error => {
           console.log('Fetch error:', error);
           setIsLoading(false);
@@ -39,7 +38,7 @@ function App() {
       weather.dt > weather.sys.sunrise &&
       weather.dt < weather.sys.sunset) {
       style = 'sunny';
-    } else if (weather.dt > weather.sys.sunset) {
+    } else if (weather.dt > weather.sys.sunset || weather.dt < weather.sys.sunrise) {
       style = 'night';
     } else if (weather.weather[0].main === 'Clouds' ||
       weather.weather[0].main === 'Rain' ||
@@ -114,6 +113,17 @@ function App() {
                 <GooglePlacesAutocomplete apiKey={GOOGLE_API}
                   selectProps={{
                     onChange: (suggestion) => {
+                      let city = '';
+                      let state = '';
+                      try {
+                      city = suggestion.value.terms[suggestion.value.terms.length-3].value + ", ";
+                      } catch {}
+                      try {
+                      state = suggestion.value.terms[suggestion.value.terms.length-2].value + ", ";
+                      } catch {}
+                      const country = suggestion.value.terms[suggestion.value.terms.length-1].value;
+                      const cityName = `${city}${state}${country}`;
+                      setCityName(cityName);
                       const newLocation = suggestion.label;
                       setLocation(newLocation);
                       getLatlong(newLocation);
@@ -126,13 +136,17 @@ function App() {
               <div className="loading">Loading...</div>
             ) : (
               <>
-                <div className="location-box">
-                  <div className="text-5xl ">{location}</div>
-                  <div className="date">{dateBuilder(new Date())}</div>
+                <div className="bg-[rgba(0,0,0,0.4)] p-3 rounded-xl">
+                  <div className="text-3xl text-white font-semibold">{cityName}</div>
+                  <div className="text-xl text-white">{dateBuilder(new Date())}</div>
                 </div>
-                <div className="weather-box"></div>
-                <div className="text-2xl">{Math.round(weather.main.temp)}°F</div>
-                <div className="weather">{weather.weather[0].main}</div>
+
+                <div className="flex items-center justify-center bg-[rgba(0,0,0,0.4)] mt-10 h-80 p-2 rounded-xl ">
+                  <div>
+                    <div className="text-9xl text-white text-center">{Math.round(weather.main.temp)}<span className="text-5xl align-top">°F</span></div>
+                    <div className="text-4xl text-white text-center">{weather.weather[0].main}</div>
+                  </div>
+                </div>
               </>
             )}
           </div>

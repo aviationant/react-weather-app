@@ -2,8 +2,6 @@
 @import "tailwindcss";
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -60,6 +58,7 @@ main {
 .night {
   background-image: url('./assets/night.png');
   transition: opacity 1s;
+  color: #ffffff;
 }
 
 .snowy {
@@ -81,7 +80,7 @@ main {
 
 .search-box {
   width: 100%;
-  margin: 0 0 75px;
+  margin: 0 0 50px;
 }
 
 .search-box .search-bar {
