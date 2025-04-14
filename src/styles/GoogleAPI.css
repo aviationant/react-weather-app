@@ -7,7 +7,7 @@
   transition: 0.4s ease;
 }
 
-div[class*="css"]:has([class*="indicatorSeparator"]) {
+div[class*="indicatorSeparator"]) span[class*="indicatorSeparator"]) {
   display: none;
 }
 
