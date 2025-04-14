@@ -7,7 +7,7 @@
   transition: 0.4s ease;
 }
 
-.google-places-autocomplete-wrapper [class*='IndicatorsContainer'] {
+.google-places-autocomplete-wrapper:has(class*="IndicatorContainer") {
   display: none;
 }
 
@@ -29,7 +29,7 @@
   transition: 0.4s ease;
 }
 
-.google-places-autocomplete-wrapper [class*='Input'] input {
+.google-places-autocomplete-wrapper [is*='input'] input {
   display: block;
   width: 100%;
   color: #ffffff !important;
