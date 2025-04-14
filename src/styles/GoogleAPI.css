@@ -28,7 +28,8 @@ div[class*="css"]:has([class*="indicatorSeparator"]) {
   background-color: rgba(0,0,0,0.7);
   transition: 0.4s ease;
 }
-div[class*='css']:has([id*='input']) {
+
+.google-places-autocomplete-wrapper [id*='input'] {
   display: block;
   width: 100%;
   color: #ffffff !important;
